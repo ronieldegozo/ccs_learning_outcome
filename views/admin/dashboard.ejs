@@ -1,0 +1,82 @@
+<%- include('./includes/header') %>
+
+  <!-- Modal create admin -->
+  <div class="modal fade" id="createadmin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"><strong>Create Admin account</strong></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+
+            <form action="/admin/register" method="POST">
+
+                <div class="form-group">
+                  
+                  <%- include('../student/partials/messages') %>
+                  
+                    <label for="firstname"><strong>First Name</strong></label>
+                    <input type="text" 
+                    name="fname" 
+                    class="form-control" 
+                    id="fname" 
+                    placeholder="First Name" 
+                    value="<%= typeof fname != 'undefined' ? fname : '' %>">
+
+                    <label for="lastname"><strong>Last Name</strong></label>
+                    <input  type="text"
+                    id="lname"
+                    name="lname"
+                    class="form-control"
+                    placeholder="Last Name"
+                    value="<%= typeof lname != 'undefined' ? lname : '' %>"/>
+
+                    <label for="email"><strong>Email</strong></label>
+                    <input   type="text"
+                    id="email"
+                    name="email"
+                    class="form-control"
+                    placeholder="Enter Email"
+                    value="<%= typeof email != 'undefined' ? email : '' %>"/>
+
+                    <label for="email"><strong>Password</strong></label>
+                    <input type="password"
+                    id="password"
+                    name="password"
+                    class="form-control"
+                    placeholder="Enter Password"
+                    value="<%= typeof password != 'undefined' ? password : '' %>"/>
+                </div>
+                <button type="submit" class="btn btn-success float-right">Create Admin</button>
+            </form>  
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container-scroller">
+
+      <!-- navbar -->
+      <%- include('./includes/navbar') %>
+
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+  
+      <!-- sidebar -->
+      <%- include('./includes/sidebar') %>
+
+      <!-- content -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <h2 class="text-center" >Student Record</h2>
+            <%- include('./includes/studentrecord') %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%- include('./includes/footer') %>
