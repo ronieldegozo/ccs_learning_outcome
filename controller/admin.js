@@ -139,7 +139,22 @@ exports.getAdminAccount = (req, res) => {
     console.log(err);
   })
 
+}
 
+//dELETE admin account
+exports.postAdminAccountDelete = (req, res) => {
+  const adminId = req.body.adminId;
+
+  Admin.destroy({ where: { id: adminId } })
+  .then(admin => {
+    console.log('DESTROYED Admin account');
+    res.redirect('/admin/account');
+    req.flash('delete_msg','User Delete Successfully'); 
+    return;
+  })
+
+  .catch(err => console.log(err));
+  
 }
 
 

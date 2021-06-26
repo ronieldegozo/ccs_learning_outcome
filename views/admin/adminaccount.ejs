@@ -38,7 +38,12 @@
                       <td><%= admins.email %></td>
                       <td>
                         <a href="#">Edit</a>
-                        <a href="#">Delete</a>
+                        <!-- <a href="#">Delete</a> -->
+                        <form action="/admin/delete" method="POST">
+                                      <!-- studentid -->
+                          <input type="hidden" value="<%= admins.id %>" name="adminId">
+                          <button type="submit" class="btn btn-success float-right mt-2">Delete</button>
+                        </form>
                       </td>
   
                     </tr>

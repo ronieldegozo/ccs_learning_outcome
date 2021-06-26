@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {getAdmin,getAdminDashboard,getAdminAccount,postAdminRegister, postLoginAdmin, postStudentStatus,getAdminLogout} = require('../controller/admin');
+const {getAdmin,getAdminDashboard,getAdminAccount,postAdminAccountDelete,postAdminRegister, postLoginAdmin, postStudentStatus,getAdminLogout} = require('../controller/admin');
 const {getQuestion, getCourse, PostCourse} = require('../controller/adminQuestion');
 const {getEmailStudent,getEmailInterviewer} = require('../controller/email');
 const {getStudentFiles} = require('../controller/studentFiles');
@@ -15,6 +15,9 @@ router.get('/dashboard',ensureAuthenticated, getAdminDashboard);
 
 //GET ADMIN ACCOUNT ROUTE
 router.get('/account', ensureAuthenticated, getAdminAccount);
+
+//delete admin
+router.post('/delete', postAdminAccountDelete );
 
 //register admin
 router.post('/register', postAdminRegister);
